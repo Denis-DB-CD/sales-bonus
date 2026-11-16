@@ -76,6 +76,10 @@ function analyzeSalesData(data, options) {
   ) {
     throw new TypeError("Некорректная структура data");
   }
+  
+  if (data.purchase_records.length === 0) {
+    throw new TypeError("Список записей о покупках не должен быть пустым");
+  }
 
   if (!options || typeof options !== "object") {
     throw new TypeError("options должен быть объектом");
